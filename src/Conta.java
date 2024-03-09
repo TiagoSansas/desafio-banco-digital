@@ -1,18 +1,20 @@
 
 public abstract class Conta implements IConta {
-	
+
 	private static final int AGENCIA_PADRAO = 1;
 	private static int SEQUENCIAL = 1;
 
 	protected int agencia;
 	protected int numero;
+	protected String tipoConta;
 	protected double saldo;
 	protected Cliente cliente;
 
-	public Conta(Cliente cliente) {
+	public Conta(Cliente cliente, String tipoConta) {
 		this.agencia = Conta.AGENCIA_PADRAO;
 		this.numero = SEQUENCIAL++;
 		this.cliente = cliente;
+		this.tipoConta = tipoConta;
 	}
 
 	@Override
@@ -37,6 +39,14 @@ public abstract class Conta implements IConta {
 
 	public int getNumero() {
 		return numero;
+	}
+
+	public void setTipoConta(String tipoConta) {
+		this.tipoConta = tipoConta;
+	}
+
+	public String getTipoConta() {
+		return this.tipoConta;
 	}
 
 	public double getSaldo() {
